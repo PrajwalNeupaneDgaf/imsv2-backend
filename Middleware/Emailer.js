@@ -1,10 +1,10 @@
 require('dotenv').config(); // To load environment variables from a .env file
 const sgMail = require('@sendgrid/mail');
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(process.env.SENDGRID);
 
 const sendVerificationEmail = async (userEmail, verificationToken) => {
-    const verificationLink = `http://localhost:5173/email-verification/${verificationToken}`;
+    const verificationLink = `${process.env.FRONTEND}/email-verification/${verificationToken}`;
 
     const msg = {
         to: userEmail,
