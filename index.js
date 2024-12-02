@@ -16,7 +16,10 @@ const { Authorize } = require('./Middleware/UserMiddleware');
 const { getAllUsers } = require('./Controller/UserController');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000','https://imsv2.netlify.app','http://localhost:5173'],
+
+}));
 app.use(express.json());
 
 
